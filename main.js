@@ -7,12 +7,14 @@
         this.marker = marker;
     }
 
+    // Variables from DOM
     let playerOneName = document.querySelector(".name1");
     let playerTwoName = document.querySelector(".name2");
     let turnMessage = document.querySelector(".turnIndicator");
     let blocks = document.querySelectorAll(".block");
     let btn = document.querySelector(".reset")
 
+    // Other variables
     let gameboard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     let turnMarker = true;
     let clickedBlock;
@@ -21,7 +23,12 @@
         let playerOne = new Player(playerOneName.value, "X");
         let playerTwo = new Player(playerTwoName.value, "O");
 
-        if (turnMarker === true){
+        if(playerOneName.value === "" || playerTwoName.value === ""){
+            turnMessage.style.color = "red";
+            turnMessage.innerHTML = "Please enter player names";
+        }
+
+        else if (turnMarker === true){
             turnMessage.style.color = "black";
             turnMessage.innerHTML = playerOne.name + " (X), please play now"
         }
@@ -32,12 +39,10 @@
     }
 
     function switchTurn() {
-        
             if(turnMarker === true){
                 makeMove(clickedBlock,"X");
                 checkWinCondition();
                 }
-
             else {
                 makeMove(clickedBlock,"O");
                 checkWinCondition();
@@ -187,4 +192,5 @@
     playerTwoName.addEventListener("keyup", renderTurnMessage);
 
 });
-})();
+})
+();
