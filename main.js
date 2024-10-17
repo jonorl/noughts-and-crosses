@@ -4,24 +4,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const noughtsAndCrosses = (function() {
     let gameboard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-    // let playerOne = new Player(X);
-    // let playerTwo = new Player(O);
+    let playerOne = new Player(X);
+    let playerTwo = new Player(O);
     let turnMarker = true
 
     // Player constructor
-    // function Player(marker) {
-    //     this.marker = marker;
-    // }
+    function Player(name, marker) {
+        this.name = name;
+        this.marker = marker;
+    }
 
     function switchTurn() {
         if(turnMarker === true){
-            let turn = prompt("Player 1 select where to place marker");
+            // let turn = prompt("Player 1 select where to place marker");
             makeMove(turn,"X");
             turnMarker = false;
             checkWinCondition();
             }
         else {
-            let turn = prompt("player 2 select where to place marker");
+            // let turn = prompt("player 2 select where to place marker");
             makeMove(turn,"O");
             turnMarker = true;
             checkWinCondition();

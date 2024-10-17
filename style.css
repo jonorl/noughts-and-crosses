@@ -1,10 +1,36 @@
-.board {
-    display: grid;
-    grid-template-columns: 10vh 10vh 10vh;
-    grid-template-rows: 10vh 10vh 10vh;
+.headerData{
+    display: flex;
+    justify-content: center;
+}
 
+fieldset {
+    margin-top: 3vh;
+    width: 57vh;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.gameInputsAndButton {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px;
+    grid-auto-flow: column;
+}
+
+.board {
+    padding-top: 5vh;
+    display: grid;
+    grid-template-columns: 20vh 20vh 20vh;
+    grid-template-rows: 20vh 20vh 20vh;
+    justify-content: center;
 }
 
 .block {
     border: 2px black solid;
+}
+
+.turnIndicatorContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
 }
