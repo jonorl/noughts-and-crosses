@@ -38,29 +38,6 @@
         }
     }
 
-    function switchTurn() {
-            if(turnMarker === true){
-                makeMove(clickedBlock,"X");
-                checkWinCondition();
-                }
-            else {
-                makeMove(clickedBlock,"O");
-                checkWinCondition();
-            }
-    }
-
-    function makeMove(move, marker) {
-        if (gameboard[move] !== "X" && gameboard[move] !== "O"){
-            gameboard[move] = marker 
-            if (turnMarker === true) {
-                turnMarker = false;
-            } 
-            else if (turnMarker === false){
-                turnMarker = true;
-            }
-        }
-    }
-
     function checkWinCondition(){
         if (gameboard[0] === "X" && gameboard[1] === "X" && gameboard[2] === "X") {
             turnMessage.innerHTML = playerOneName.value + " won!";
@@ -162,13 +139,17 @@
             }
 
         else {
-            switchTurn();
-            if (playerOneName === "" && playerTwoName === "") {
-                renderTurnMessage();
-            } else if (turnMarker === true) {
-                e.target.innerHTML = "O";
-            } else if (turnMarker === false) {
+            if (turnMarker === true) {
+                gameboard[clickedBlock] = "X"
                 e.target.innerHTML = "X";
+                turnMarker = false;
+                checkWinCondition();
+            } 
+            else if (turnMarker === false) {
+                gameboard[clickedBlock] = "O"
+                e.target.innerHTML = "O";
+                turnMarker = true;
+                checkWinCondition();
             }
         }
     }
