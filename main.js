@@ -43,7 +43,7 @@
             turnMarker = (turnMarker === "X") ? "O" : "X";
             currentPlayer = (currentPlayer === playerOneName.value) ? playerTwoName.value :playerOneName.value;
             turnMessage.style.color = "black";
-            turnMessage.innerHTML = currentPlayer + " (" + turnMarker + ") , please play now"
+            turnMessage.innerHTML = currentPlayer + " (" + turnMarker + "), please play now"
         }
     }
 
