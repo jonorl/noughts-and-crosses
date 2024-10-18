@@ -100,7 +100,7 @@
         else {
             currentPlayer = playerOneName.value
             turnMessage.style.color = "black";
-            turnMessage.innerHTML = currentPlayer + " (" + turnMarker + ") , please play now"
+            turnMessage.innerHTML = currentPlayer + " (" + turnMarker + "), please play now"
             }
         }
 
